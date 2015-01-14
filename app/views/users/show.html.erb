@@ -1,0 +1,37 @@
+<div class="container">
+
+<h1 class="text-center"> <%=@user_page.name%>'s Posts: </h1>
+<%= render "common/flash" %>
+<div class="row">
+  <div class="text-center col-xs-8 col-xs-offset-2">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <td>Upvotes</td>
+          <td>Link to it's page</td>
+          <% if @user_page == @current_user %>
+            <td>Edit</td>
+            <td>Delete</td>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td>Placeholder</td>
+            <td><%= link_to "#{post.title}", post_path(post) %></td>
+            <% if @user_page == @current_user %>
+              <td><%= link_to 'Edit', edit_post_path(post) %></td>
+              <td><%= link_to 'Destroy', post_path(post), method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row text-center">
+  <h3><%= link_to "Add a new post!", new_post_path %></h3>
+  <h3><%= link_to 'back to list', posts_path %></h3>
+</div>

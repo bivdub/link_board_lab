@@ -1,0 +1,12 @@
+<div class="container text-center">
+
+  <%= render "common/flash" %>
+  <%= simple_form_for :user do |f| %>
+    <%= f.input :name, placeholder: "Enter your username" %>
+    <%= f.input :email, placeholder: "Enter your email" %>
+    <%= f.password_field :password, placeholder: "Enter your password"%>
+    <%= f.input :password_confirmation, placeholder: "Confirm password"%>
+    <%= f.submit "Login"%>
+  <% end %>
+
+</div>

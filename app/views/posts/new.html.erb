@@ -1,0 +1,32 @@
+<div class="container text-center">
+  <div class="row">
+    <h1>Please to enter a new post?</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+    <%= render "common/flash" %>
+      <%= simple_form_for :post, url: posts_path do |f| %>
+        <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@post.errors.count, "error") %> prohibited this article from being saved:
+            </h2>
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <h3><%= f.input :title, label: 'post title' %></h3>
+        <h3><%= f.input :link, label: 'post link' %></h3>
+        <h5><%= f.button :submit %></h5>
+
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <h3><%= link_to "back to list", posts_path %></h3>
+  </div>
+</div>

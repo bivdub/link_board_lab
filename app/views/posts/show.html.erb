@@ -1,0 +1,14 @@
+<div class="container text-center">
+
+<div class="row">
+  <h1><%= @post.title %></h1>
+</div>
+<div class="row">
+  <h4>Link</h4>
+</div>
+<div class="row bordered">
+  <h5><a href='https://<%=@post.link%>'><%=@post.link%></h5>
+</div>
+<div class="row">
+  <h3><%= link_to 'back to list', posts_path %></h3>
+</div>
